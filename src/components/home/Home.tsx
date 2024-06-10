@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     async function getGoods() {
       try {
-        const response = await axios.get(process.env.BASE_URL + "/goods")
+        const response = await axios.get("http://besh.space:8080/goods")
         setGoods(response.data.data);
       } catch(e: any) {
         return e.message
@@ -25,10 +25,10 @@ function Home() {
 
   const handleDelete = async (id: any) => {
     try {
-      const response = await axios.get(process.env.BASE_URL + `/goods/delete/${id}`)
+      const response = await axios.get(`http://besh.space:8080/goods/delete/${id}`)
       if (response.status === 200) {
         toast.success("Товар успешно удален")
-        await axios.get("http://besh.space/goods")
+        await axios.get("http://besh.space:8080/goods")
       }
     } catch(e: any) {
       return e.message;
