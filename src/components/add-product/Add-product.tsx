@@ -15,7 +15,7 @@ function AddProduct() {
   }
   const handleClick = async () => {
     try {
-      const response  = await axios.post(process.env.BASE_URL + "/goods", good)
+      const response  = await axios.post("http://besh.space:8080/goods", good)
       setGood({
         name: "",
         price: "",
