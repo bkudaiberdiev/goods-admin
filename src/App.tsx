@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, Routes, useParams} from "react-router-dom";
+import Home from "./components/home/Home";
+import AddProduct from "./components/add-product/Add-product";
+import Sidebar from "./components/sidebar/Sidebar";
+import "./App.css"
+import ProductDetail from "./components/product-detail/Product-detail";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
+  const params = useParams();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route  path="/add-product" element={<AddProduct />}/>
+        <Route  path="/:id" element={<ProductDetail />}/>
+      </Routes>
+      <Toaster />
     </div>
   );
 }

@@ -1,0 +1,49 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0px 12px 0px rgba(0, 0, 0, 0.06);
+}
+.sidebar__header{
+    height: 60px;
+    background: #3b3b45;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.sidebar__header h2 {
+    margin: auto;
+}
+
+.sidebar_menu li {
+    padding: 10px 20px;
+}
+
+.sidebar_menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+}
+
+/*===================*/
+
+.home {
+    padding: 60px;
+    width: calc(100% - 250px);
+}
+
+
+.add h1 {
+    margin-bottom: 30px;
+}
+.add {
+    padding: 60px;
+    width: 300px
+}
+.add input {
+    margin-bottom: 20px;
+
+}
