@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     async function getGoods() {
       try {
-        const response = await axios.get("http://besh.space/goods")
+        const response = await axios.get(process.env.BASE_URL + "/goods")
         setGoods(response.data.data);
       } catch(e: any) {
         return e.message
@@ -25,7 +25,7 @@ function Home() {
 
   const handleDelete = async (id: any) => {
     try {
-      const response = await axios.get(`http://besh.space/goods/delete/${id}`)
+      const response = await axios.get(process.env.BASE_URL + `/goods/delete/${id}`)
       if (response.status === 200) {
         toast.success("Товар успешно удален")
         await axios.get("http://besh.space/goods")
