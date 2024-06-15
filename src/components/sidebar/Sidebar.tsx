@@ -15,6 +15,9 @@ function Sidebar() {
         <li>
           <Link to="/add-product">Добавить товар</Link>
         </li>
+        <li>
+          <Link to="/producers">Поставщики</Link>
+        </li>
       </ul>
     </div>
   );

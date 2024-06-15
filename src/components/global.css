@@ -31,7 +31,6 @@
 /*===================*/
 
 .home {
-    padding: 60px;
     width: calc(100% - 250px);
 }
 
@@ -40,10 +39,44 @@
     margin-bottom: 30px;
 }
 .add {
-    padding: 60px;
     width: 300px
 }
 .add input {
     margin-bottom: 20px;
 
+}
+/*producers*/
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    height: 40px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: mediumpurple;
+    color: white;
+}
+
+/*=============== Modal ============*/
+
+.modal {
+    padding: 30px;
+}
+
+.modal input {
+    margin-bottom: 20px;
 }
