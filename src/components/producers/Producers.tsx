@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Button, Input} from "antd";
+import {Button, Input, Popconfirm} from "antd";
 import Popup from "reactjs-popup";
 import toast from "react-hot-toast";
 
@@ -43,12 +43,20 @@ function Producers() {
   const handleSubmit = async(e: any) => {
     try {
       const res = await axios.post("http://besh.space:8080/producer", {...formData})
-      if (res.status === 200) {
+      if (res.data.status === "FAIL" || res.status === 400) {
+        toast.error("Заполните необходимые поля");
+        return;
+      } else if (res.status === 200) {
         toast.success("Поставщик успешно добавлен")
         closeModal();
         setFormData(initialForm)
+        return window.location.reload()
+
       }
     } catch(e: any) {
+      if (e.response.status === 400) {
+        toast.error("Заполните необходимые поля");
+      }
       return e.message;
     }
   };
@@ -60,6 +68,7 @@ function Producers() {
         toast.success("Постващик успешно удален", {
           position: "top-right"
         })
+        return window.location.reload()
       }
     } catch(e: any) {
       return e.message;
@@ -94,7 +103,7 @@ function Producers() {
       </div>
       <table id="customers">
         <tr>
-          <th>Название поставщика</th>
+          <th>Имя поставщика</th>
           <th>Почта</th>
           <th>ФИО</th>
           <th>Адрес</th>
@@ -110,9 +119,14 @@ function Producers() {
               <td>{producer.address}</td>
               <td>{producer.phone}</td>
               <td>
-                <Button onClick={() => {
-                  deleteProducer(producer)
-                }} danger>Удалить</Button>
+                <Popconfirm
+                  title="Вы точно хотите удалить этого постащика?"
+                  onConfirm={() => deleteProducer(producer)}
+                  okText="Да"
+                  cancelText="Нет"
+                >
+                  <Button danger>Удалить</Button>
+                </Popconfirm>
               </td>
             </tr>
           )

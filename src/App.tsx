@@ -7,6 +7,9 @@ import "./App.css"
 import ProductDetail from "./components/product-detail/Product-detail";
 import toast, { Toaster } from 'react-hot-toast';
 import Producers from "./components/producers/Producers";
+import Consumers from "./components/consumers/Consumers";
+import GoodsIn from "./components/goodsIn/GoodsIn";
+import GoodsOut from "./components/goodsOut/goodsOut";
 
 function App() {
   const params = useParams();
@@ -19,6 +22,10 @@ function App() {
           <Route  path="/add-product" element={<AddProduct />}/>
           <Route  path="/:id" element={<ProductDetail />}/>
           <Route path="/producers" element={<Producers />} />
+          <Route path="/consumers" element={<Consumers />} />
+          <Route path="/goods/in" element={<GoodsIn />} />
+          <Route path="/goods/out" element={<GoodsOut />} />
+
         </Routes>
       </div>
       <Toaster />

@@ -20,6 +20,9 @@
 .sidebar_menu li {
     padding: 10px 20px;
 }
+.sidebar_menu li:hover {
+    background: #e7e7e7;
+}
 
 .sidebar_menu li a {
     text-decoration: none;
@@ -31,7 +34,7 @@
 /*===================*/
 
 .home {
-    width: calc(100% - 250px);
+    /*width: calc(100% - 250px);*/
 }
 
 
@@ -56,10 +59,11 @@
 #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
-    height: 40px;
+    height: 15px;
+    font-size: 14px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+/*#customers tr:nth-child(even){background-color: #f2f2f2;}*/
 
 #customers tr:hover {background-color: #ddd;}
 
@@ -67,8 +71,6 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: mediumpurple;
-    color: white;
 }
 
 /*=============== Modal ============*/

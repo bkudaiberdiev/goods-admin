@@ -21,6 +21,8 @@ function AddProduct() {
       })
       if (response.status === 200) {
         toast.success("Товар успешно добавлен")
+        return window.location.reload()
+
       }
     } catch(e: any) {
       return e.message
